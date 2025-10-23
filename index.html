@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Renung Aksara — Ali Muhsi Kemal</title>
+<meta name="theme-color" content="#111a18">
+
+<!-- Favicon & Icons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- SEO / Social -->
+<meta name="description" content="Ruang berpikir, berkarya, dan berdoa — di mana budaya, sastra, religi, dan teknologi saling menyapa.">
+<meta property="og:title" content="Renung Aksara — Ali Muhsi Kemal">
+<meta property="og:description" content="Tema lembut, teks nyaman, menyatu dengan ruh budaya, sastra, religi, dan teknologi.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alimuhsikemal.com/">
+<meta property="og:image" content="/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+/* ====== Soft Dark Theme ====== */
+:root{
+  --bg:#111a18; --paper:#19231f; --card:#1f2a25; --stroke:#2a3832;
+  --ink:#eef1ef; --ink-soft:#c9d3cf; --muted:#98a8a3;
+  --accent:#53b3a5; --accent-2:#d3a072; /* aksen sedikit dilembutkan */
+  --radius:18px; --shadow:0 16px 48px rgba(0,0,0,.35);
+  --headH:64px; /* di-set via JS agar ticker nempel tepat di bawah header */
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; color:var(--ink);
+  font:500 16.5px/1.75 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(1200px 700px at 100% -10%, rgba(216,163,109,.12), transparent 60%),
+    radial-gradient(1100px 650px at 0% 100%, rgba(83,179,165,.10), transparent 62%),
+    var(--bg);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+h1,h2{font-family:ui-serif,Georgia,serif}
+a{color:inherit;text-decoration:none}
+.container{max-width:1160px;margin:auto;padding:26px}
+.section{padding:32px 0}
+hr{border:0;border-top:1px solid var(--stroke);margin:22px 0}
+
+/* Header */
+.header{
+  position:sticky; top:0; z-index:50;
+  border-bottom:1px solid var(--stroke);
+  background:linear-gradient(180deg, rgba(25,35,31,.92), rgba(25,35,31,.66));
+  backdrop-filter:blur(8px);
+}
+.head-in{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:42px;height:42px;border-radius:12px;display:block}
+.sigil{display:none} /* diganti img logo */
+.tag{color:var(--muted);font-size:.95rem}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{padding:8px 12px;border-radius:12px;border:1px solid var(--stroke);background:#1a241f;transition:.15s}
+.tab.primary{border-color:#35574f;background:#21312b}
+
+/* Slogan (hero) */
+.slogan{padding:22px 20px 14px;background:linear-gradient(180deg,#15211d,#17241f);border-bottom:1px solid var(--stroke)}
+.slogan-inner{max-width:1280px;margin:auto;text-align:center}
+.title{margin:8px 0 4px;font-weight:900;letter-spacing:.2px;font-size:clamp(26px,4.5vw,48px)}
+.subtitle{
+  color:#a8b5ad; max-width:860px; margin:4px auto 0;
+  font:400 .95rem/1.7 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing:.3px;
+}
+
+/* Ticker — sticky under header, super soft */
+.ticker-wrap{
+  position:sticky;
+  top:var(--headH);
+  z-index:49;
+  overflow:hidden; width:100%;
+  border-bottom:1px solid var(--stroke); background:#141f1b;
+  mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+}
+.ticker{
+  display:inline-block;white-space:nowrap;padding:10px 0;
+  animation:ticker 120s linear infinite; /* lembut */
+  opacity:.6;filter:saturate(.85) contrast(.95);
+}
+.ticker span{margin:0 42px;color:#b4c0bc}
+@keyframes ticker{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.ticker{animation-duration:999s}}
+.ticker-wrap:hover .ticker{animation-play-state:paused}
+
+/* Grid & Cards */
+.grid{display:grid;gap:18px}
+.grid-2{grid-template-columns:1.1fr .9fr}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.card,.hero-card{border:1px solid var(--stroke);background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+.item{display:flex;justify-content:space-between;gap:14px;padding:12px 14px;border:1px dashed var(--stroke);border-radius:14px;background:#1a241f}
+.item small{color:var(--muted)}
+.timeline{display:grid;gap:12px}
+.tl{position:relative;padding:12px 14px 12px 30px;border:1px solid var(--stroke);border-radius:14px;background:#1a241f}
+.tl:before{content:"";position:absolute;left:12px;top:18px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+/* Waktu & salat */
+.prayer .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.bigclock{font-weight:1000;letter-spacing:.6px;font-size:clamp(36px,8vw,84px);color:var(--accent);line-height:1.05;text-shadow:0 10px 30px rgba(86,182,169,.18)}
+.count{font-weight:900;font-size:clamp(22px,4.2vw,34px);color:#cfe9e4;letter-spacing:.4px}
+.badge{display:inline-flex;gap:8px;align-items:center;padding:7px 10px;border:1px dashed var(--stroke);border-radius:10px;background:#1a241f;color:var(--muted)}
+.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.time-card{padding:12px;border:1px solid var(--stroke);border-radius:12px;background:#16201b}
+.time-card .name{color:var(--muted);font-size:.92rem}
+.time-card .val{font-weight:800;font-size:20px}
+.smallnote{color:#94a49f;font-size:.9rem;margin-top:8px}
+
+/* Footer */
+footer{padding:40px 0 64px;border-top:1px solid var(--stroke);color:var(--muted)}
+.foot-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
+
+/* Responsive */
+@media (max-width:980px){ .grid-2{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr 1fr} .foot-grid{grid-template-columns:1fr} }
+@media (max-width:560px){ .container{padding:20px} .grid-3{grid-template-columns:1fr} }
+
+/* Fallback: bila sticky tak didukung → fixed + offset */
+html.sticky-fallback .ticker-wrap{ position:fixed; top:var(--headH); left:0; right:0; z-index:49; }
+html.sticky-fallback main{ padding-top: calc(var(--tickerH, 40px)); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="header">
+  <div class="container head-in">
+    <div class="brand">
+      <!-- Pakai logo.svg yang kamu kirim (taruh di lokasi yang sama dengan file ini) -->
+      <img src="logo.svg" alt="Logo Ali Muhsi Kemal" class="logo">
+      <div>
+        <strong style="font-family:ui-serif,Georgia,serif;font-weight:900">Ali Muhsi Kemal</strong><br>
+        <span class="tag">Pelayan Tamu Allah · Penulis — Renung Aksara</span>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="navigasi">
+      <a class="tab primary" href="#karya">Karya</a>
+      <a class="tab" href="#tulisan">Tulisan</a>
+      <a class="tab" href="#jadwal">Jadwal</a>
+      <a class="tab" href="#waktu">Waktu & Salat</a>
+      <a class="tab" href="https://wa.me/6281992099999" target="_blank">Hubungi</a>
+    </nav>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div id="ticker" class="ticker"></div>
+</div>
+
+<main>
+  <!-- INFO -->
+  <section class="section">
+    <div class="container grid grid-2">
+      <div class="hero-card">
+        <b style="font-family:ui-serif,Georgia,serif;font-size:20px">Ringkas</b>
+        <p class="tag" style="margin-top:6px">Halaman depan Renung Aksara — ringan, fokus keterbacaan, dan siap diisi karya & tulisan hidupmu.</p>
+      </div>
+      <div class="hero-card">
+        <b style="font-family:ui-serif,Georgia,serif;font-size:20px">Arah Desain</b>
+        <p class="tag" style="margin-top:6px">Soft dark · editorial · aksen toska & teh. Teks nyaman, nuansa budaya, sastra, religi, dan teknologi menyatu.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- SLOGAN -->
+  <div class="slogan">
+    <div class="slogan-inner">
+      <h1 class="title">Dari Sunyi — Untuk Semesta</h1>
+      <p class="subtitle">ruang berpikir, berkarya, dan berdoa — di mana budaya, sastra, religi, dan teknologi saling menyapa.</p>
+    </div>
+  </div>
+
+  <!-- KARYA -->
+  <section id="karya" class="section">
+    <div class="container">
+      <h2 style="margin:0 0 10px;font-weight:900">Karya Pilihan</h2>
+      <div class="grid grid-3">
+        <article class="card"><b>Bayangan di Mina</b><div class="tag" style="margin-top:6px">Narasi video · budaya · religi</div></article>
+        <article class="card"><b>Langit Muzdalifah</b><div class="tag" style="margin-top:6px">Puisi malam · visual bokeh</div></article>
+        <article class="card"><b>Rihlah</b><div class="tag" style="margin-top:6px">Serial pendek · perjalanan hati</div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="section">
+    <div class="container">
+      <h2 style="margin:0 0 10px;font-weight:900">Video Terbaru</h2>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:16px">
+        <div class="card"><div style="position:relative;padding-top:56.25%">
+          <iframe src="https://www.youtube.com/embed/U-b3uERZwmc" title="YouTube video 1" allowfullscreen
+            style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe>
+        </div></div>
+        <div class="card"><div style="position:relative;padding-top:56.25%">
+          <iframe src="https://www.youtube.com/embed/6mvvx15hRBg" title="YouTube video 2" allowfullscreen
+            style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe>
+        </div></div>
+        <div class="card"><div style="position:relative;padding-top:56.25%">
+          <iframe src="https://www.youtube.com/embed/8BstvY_VNIY" title="YouTube video 3" allowfullscreen
+            style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe>
+        </div></div>
+      </div>
+    </div>
+  </section>
+     
+  <!-- TULISAN -->
+  <section id="tulisan" class="section">
+    <div class="container">
+      <h2 style="margin:0 0 10px;font-weight:900">Tulisan Terbaru</h2>
+      <div id="listTulisan"></div>
+    </div>
+  </section>
+
+  <!-- JADWAL -->
+  <section id="jadwal" class="section">
+    <div class="container">
+      <h2 style="margin:0 0 10px;font-weight:900">Jadwal & Catatan</h2>
+      <div class="timeline">
+        <div class="tl"><b>Pekan ini</b><br><span class="tag">Penjadwalan layanan keluarga — by request.</span></div>
+        <div class="tl"><b>Ahad malam</b><br><span class="tag">Rilis tulisan Renung Aksara.</span></div>
+        <div class="tl"><b>Catatan</b><br><span class="tag">Semua tautan: alimuhsikemal.link</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAKTU & SALAT -->
+  <section id="waktu" class="section" style="padding-top:6px">
+    <div class="container">
+      <div class="hero-card prayer">
+        <div class="row">
+          <div>
+            <div class="bigclock" id="bigClock">--:--:--</div>
+            <div class="badge" id="tz">Zona waktu —</div>
+          </div>
+          <div class="badge"><span class="tag">Menuju</span> <b id="nextName">—</b> · <span class="count" id="countdown">--:--:--</span></div>
+        </div>
+        <div style="margin-top:10px" class="smallnote" id="locLabel">Lokasi: memperkirakan via IP…</div>
+        <div class="time-grid" id="times"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot-grid">
+    <div>© <span id="y"></span> Ali Muhsi Kemal — Renung Aksara</div>
+    <div style="text-align:right" class="tag">(MIT) Pancaksora — karya & renung · by Ali Muhsi Kemal</div>
+  </div>
+</footer>
+
+<script>
+/* ===== Sticky support + fallback fixed + pengukuran dinamis ===== */
+function supportsSticky(){
+  return CSS.supports('position','sticky') || CSS.supports('position','-webkit-sticky');
+}
+const root    = document.documentElement;
+const header  = document.querySelector('.header');
+const tickerW = document.querySelector('.ticker-wrap');
+function updateVars(){
+  const headH   = header?.offsetHeight  || 64;
+  const tickerH = tickerW?.offsetHeight || 40;
+  root.style.setProperty('--headH',  headH + 'px');
+  root.style.setProperty('--tickerH',tickerH + 'px');
+}
+try{
+  const ro = new ResizeObserver(updateVars);
+  header && ro.observe(header);
+  tickerW && ro.observe(tickerW);
+}catch(e){ addEventListener('resize', updateVars); }
+addEventListener('resize', updateVars);
+addEventListener('orientationchange', updateVars);
+if (window.visualViewport) visualViewport.addEventListener('resize', updateVars);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateVars);
+requestAnimationFrame(updateVars); setTimeout(updateVars,0); setTimeout(updateVars,250); setTimeout(updateVars,1000);
+if (!supportsSticky()){ root.classList.add('sticky-fallback'); updateVars(); }
+
+/* Tahun */
+document.getElementById('y').textContent = new Date().getFullYear();
+
+/* Ticker (soft & slow) */
+const HIKMAH = [
+  "Jalan yang pelan, seringkali lebih sampai.",
+  "Kita menulis agar hati punya tempat pulang.",
+  "Doa itu sunyi—namun menggerakkan semesta.",
+  "Sabar adalah langkah yang tidak berbunyi.",
+  "Apa pun yang pergi, jangan biarkan makna ikut pulang."
+];
+const tickerEl = document.getElementById('ticker');
+tickerEl.innerHTML = (" " + HIKMAH.join("  •  ") + "  •  ").repeat(3)
+  .split("•").map(s=>`<span>${s.trim()}</span>`).join("•");
+
+/* Jam besar */
+const bigClock = document.getElementById('bigClock');
+const tzEl = document.getElementById('tz');
+tzEl.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+function tick(){
+  const d=new Date();
+  bigClock.textContent=[d.getHours(),d.getMinutes(),d.getSeconds()]
+    .map(v=>String(v).padStart(2,'0')).join(':');
+}
+setInterval(tick,1000); tick();
+
+/* Waktu salat (lokasi via IP, tanpa izin) */
+const PRAYERS=["Fajr","Dhuhr","Asr","Maghrib","Isha"];
+const timesWrap=document.getElementById('times');
+const nextName=document.getElementById('nextName');
+const countdown=document.getElementById('countdown');
+const locLabel=document.getElementById('locLabel');
+let currentTimings=null;
+function toToday(hm){ const [H,M]=hm.split(':').map(Number); const d=new Date(); d.setHours(H,M,0,0); return d; }
+function renderTimes(t){
+  const map={Imsak:"Imsak",Fajr:"Subuh",Sunrise:"Terbit",Dhuhr:"Zuhur",Asr:"Asar",Maghrib:"Maghrib",Isha:"Isya"};
+  const order=["Imsak","Fajr","Sunrise","Dhuhr","Asr","Maghrib","Isha"];
+  timesWrap.innerHTML=order.map(k=>t[k]?`<div class="time-card"><div class="name">${map[k]||k}</div><div class="val">${t[k].replace(/^0/,'')}</div></div>`:'').join('');
+}
+function updateCountdown(){
+  if(!currentTimings) return;
+  const now=new Date();
+  const seq=PRAYERS.map(n=>({name:n, date:toToday(currentTimings[n])}));
+  let next=seq.find(x=>x.date>now);
+  if(!next){
+    next={name:"Fajr",date:new Date(now)};
+    const [H,M]=currentTimings["Fajr"].split(':').map(Number);
+    next.date.setDate(now.getDate()+1); next.date.setHours(H,M,0,0);
+  }
+  const mapName={Fajr:"Subuh",Dhuhr:"Zuhur",Asr:"Asar",Maghrib:"Maghrib",Isha:"Isya"};
+  nextName.textContent = mapName[next.name]||next.name;
+  const diff=next.date-now;
+  const h=String(Math.floor(diff/3600000)).padStart(2,'0'),
+        m=String(Math.floor(diff%3600000/60000)).padStart(2,'0'),
+        s=String(Math.floor(diff%60000/1000)).padStart(2,'0');
+  countdown.textContent=`${h}:${m}:${s}`;
+}
+setInterval(updateCountdown,1000);
+
+async function getIPLocation(){
+  try{
+    const res = await fetch('https://ipapi.co/json/');
+    if(!res.ok) throw new Error('ipapi fail');
+    const j = await res.json();
+    if(j && j.latitude && j.longitude){
+      locLabel.textContent = `Lokasi (per IP): ${j.city||'—'}, ${j.country_name||'—'}`;
+      return {lat:j.latitude, lon:j.longitude};
+    }
+    throw new Error('no lat lon');
+  }catch(e){
+    try{
+      const res2=await fetch('https://ipwho.is/');
+      const j2=await res2.json();
+      if(j2 && j2.success && j2.latitude && j2.longitude){
+        locLabel.textContent = `Lokasi: ${j2.city||'—'}, ${j2.country||'—'}`;
+        return {lat:j2.latitude, lon:j2.longitude};
+      }
+    }catch(e2){}
+    locLabel.textContent = "Lokasi: Makkah (fallback)";
+    return {lat:21.4225, lon:39.8262};
+  }
+}
+async function loadTimings(lat,lon){
+  try{
+    const url=`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=4`;
+    const res=await fetch(url);
+    const js=await res.json();
+    const t=js?.data?.timings||{};
+    ["Fajr","Sunrise","Dhuhr","Asr","Maghrib","Isha","Imsak"].forEach(k=>{
+      if(t[k]) t[k]=t[k].split(' ')[0];
+    });
+    currentTimings=t; renderTimes(t); updateCountdown();
+  }catch(e){ console.error(e); }
+}
+(async()=>{ const pos = await getIPLocation(); await loadTimings(pos.lat, pos.lon); })();
+
+/* Tulisan dinamis via tulisan.json */
+(async function(){
+  const jsonURL = "/tulisan.json"; // pakai path akar domain
+  try{
+    const r = await fetch(jsonURL, {cache:"no-cache"}); const data = await r.json();
+    const wrap = document.getElementById('listTulisan');
+    wrap.innerHTML = data.map(it=>{
+      const tgl = new Date(it.tanggal);
+      const opts = {year:'numeric',month:'short',day:'2-digit'};
+      const pretty = tgl.toLocaleDateString('id-ID',opts);
+      return `
+        <a class="item" href="${it.url||'#'}">
+          <div>
+            <b>${it.judul}</b>
+            <div class="tag">${it.ringkas||''}</div>
+          </div>
+          <small class="tag">${pretty}</small>
+        </a>`;
+    }).join('');
+  }catch(e){ console.error("Gagal memuat tulisan.json", e); }
+})();
+</script>
+</body>
+</html>

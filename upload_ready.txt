@@ -1,0 +1,14 @@
+UPLOAD VIA FILEZILLA — alimuhsikemal.com
+
+1) File → Site Manager → New Site.
+2) Host: (server hosting Anda), Protocol: SFTP (disarankan) / FTP.
+   Port: 22 (SFTP) atau 21 (FTP).
+3) Logon Type: Normal → isi Username & Password dari hosting.
+4) Connect.
+5) Panel kanan: buka folder root domain, biasanya public_html/ atau httpdocs/.
+6) Seret (drag & drop) seluruh isi ZIP ini ke root. Pastikan `index.html` berada di root.
+7) Uji: https://alimuhsikemal.com → halaman beranda tampil.
+8) Uji data: https://alimuhsikemal.com/tulisan.json → file JSON harus bisa diakses.
+
+Formulir 'Kirim Pesan' memakai mailto: → pengunjung mengirim via aplikasi email di perangkat mereka.
+Jika ingin tanpa aplikasi email, daftar gratis di Formspree dan ganti atribut action form.

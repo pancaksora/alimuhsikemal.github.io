@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Langkah Sunyi — Renung Aksara</title>
+<meta name="theme-color" content="#111a18">
+<meta name="description" content="Kita menulis pelan agar makna sempat duduk. Sebuah renungan tentang berjalan tanpa gaduh, dan pulang tanpa tergesa.">
+
+<!-- OG -->
+<meta property="og:title" content="Langkah Sunyi — Renung Aksara">
+<meta property="og:description" content="Kita menulis pelan agar makna sempat duduk. Sebuah renungan tentang berjalan tanpa gaduh, dan pulang tanpa tergesa.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/og-cover.jpg">
+
+<style>
+:root{
+  --bg:#111a18; --paper:#19231f; --card:#1f2a25; --stroke:#2a3832;
+  --ink:#eef1ef; --ink-soft:#c9d3cf; --muted:#98a8a3;
+  --accent:#53b3a5; --accent2:#d3a072;
+  --radius:18px; --shadow:0 16px 48px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box} html,body{height:100%}
+body{
+  margin:0; background:
+    radial-gradient(1200px 700px at 100% -10%, rgba(211,160,114,.12), transparent 60%),
+    radial-gradient(1100px 650px at 0% 100%, rgba(83,179,165,.10), transparent 62%),
+    var(--bg);
+  color:var(--ink);
+  font:500 17px/1.85 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+.container{max-width:900px;margin:auto;padding:28px}
+.header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,rgba(25,35,31,.92),rgba(25,35,31,.66));border-bottom:1px solid var(--stroke);backdrop-filter:blur(8px)}
+.head-in{max-width:1100px;margin:auto;padding:14px 18px;display:flex;align-items:center;gap:12px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{width:38px;height:38px;border-radius:10px;display:block}
+.brand .nm{font-weight:900;font-family:ui-serif,Georgia,serif}
+.nav a{padding:8px 12px;border:1px solid var(--stroke);border-radius:12px;background:#1a241f;margin-left:6px}
+main{max-width:900px;margin:auto}
+
+.hero{ margin:26px auto 12px; padding:0 10px; text-align:center; }
+h1.title{
+  margin:8px 0 10px; font-family:ui-serif,Georgia,serif; font-weight:900;
+  font-size:clamp(28px,4.8vw,46px); letter-spacing:.2px;
+}
+p.kicker{color:#a8b5ad; margin:8px auto 0; max-width:720px; font-size:1rem; letter-spacing:.2px}
+.meta{color:#9fb0aa;margin-top:10px;font-size:.95rem}
+.meta .dot{margin:0 8px;opacity:.6}
+
+.article{
+  background:var(--card); border:1px solid var(--stroke); border-radius:22px; box-shadow:var(--shadow);
+  padding:clamp(18px,3.5vw,36px); margin:18px 10px 26px;
+}
+.article p{margin:1em 0}
+.article h2,.article h3{
+  font-family:ui-serif,Georgia,serif; font-weight:900; letter-spacing:.2px; margin:1.6em 0 .6em
+}
+.article h2{font-size:clamp(22px,3.2vw,30px)}
+.article h3{font-size:clamp(19px,2.8vw,24px)}
+.article strong{font-weight:800}
+.article em{opacity:.95}
+
+.dropcap:first-letter{
+  float:left; font-family:ui-serif,Georgia,serif; font-weight:900;
+  font-size:3.2em; line-height:.85; padding:.12em .18em 0 0; color:var(--accent);
+}
+
+blockquote{
+  margin:1.2em 0; padding:16px 18px; background:#16201b; border:1px solid var(--stroke);
+  border-radius:14px; color:#d3dfda; position:relative
+}
+blockquote:before{
+  content:"“"; position:absolute; left:10px; top:-14px; font-size:42px; color:#3b4b45; font-family:ui-serif,Georgia,serif;
+}
+blockquote cite{display:block;color:#9eb0aa;margin-top:8px;font-style:normal}
+
+.ayat{
+  border-left:3px solid var(--accent); background:#141e19; font-family: "Traditional Arabic", "Scheherazade New", serif;
+  font-size:1.35rem; line-height:2; direction:rtl; text-align:right; padding:12px 14px; border-radius:12px; color:#e7efe9
+}
+.terjemah{color:#b8c6bd; margin-top:6px; font-style:italic}
+
+figure{margin:1.4em 0; text-align:center}
+figure img{max-width:100%; border-radius:14px; border:1px solid var(--stroke)}
+figcaption{color:#9fb0aa; font-size:.92rem; margin-top:6px}
+
+pre{background:#0f1815; color:#dfe7e4; border:1px solid var(--stroke); border-radius:12px; padding:14px; overflow:auto}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:.92rem}
+
+.note{border:1px dashed var(--stroke); background:#17221e; color:#c9d3cf; padding:12px 14px; border-radius:12px}
+hr.sep{border:0;border-top:1px solid var(--stroke);margin:22px 0}
+
+.share{ display:flex;gap:10px;flex-wrap:wrap;margin:12px 10px 0 }
+.btn{
+  display:inline-flex; align-items:center; gap:8px; padding:9px 12px;
+  border:1px solid var(--stroke); background:#1a241f; color:#e9f2ef; border-radius:12px;
+}
+.btn:hover{transform:translateY(-1px)}
+
+.post-nav{
+  display:flex; justify-content:space-between; gap:10px; margin:22px 10px 10px
+}
+.post-nav a{flex:1; text-align:center; border:1px solid var(--stroke); background:#16201b; padding:10px; border-radius:12px; color:#cfe1db}
+
+.footer{max-width:900px;margin:10px auto 40px;padding:0 10px;color:#9fb0aa;text-align:center}
+.footer small{opacity:.9}
+</style>
+</head>
+<body>
+
+<!-- Header kecil -->
+<div class="header">
+  <div class="head-in">
+    <div class="brand">
+      <img src="/logo.svg" alt="Logo AK">
+      <div><span class="nm">Renung Aksara</span><br><span style="color:#9fb0aa;font-size:.92rem">Ali Muhsi Kemal</span></div>
+    </div>
+    <div class="nav">
+      <a href="/">Beranda</a>
+      <a href="https://wa.me/6281992099999" target="_blank">Hubungi</a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <!-- Hero judul -->
+  <section class="hero">
+    <h1 class="title">Langkah Sunyi</h1>
+    <p class="kicker">Kita menulis pelan agar makna sempat duduk — agar hati menemukan jedanya sendiri.</p>
+    <div class="meta">
+      <span id="metaDate">2025-10-18</span><span class="dot">•</span>
+      <span id="readtime">— menit baca</span>
+    </div>
+  </section>
+
+  <!-- Artikel -->
+  <article class="article" id="article">
+    <p class="dropcap"><strong>Ada perjalanan yang tak memerlukan peta,</strong> hanya keberanian untuk melambat.
+      Dalam sunyi, langkah menjadi jernih; yang jauh tampak dekat; yang berat, bisa ditaruh sebentar.</p>
+
+    <p>Kita diajari dunia untuk cepat: menanggapi, menilai, menuntaskan. Namun jiwa punya iramanya sendiri.
+      Di sela hiruk, ia memanggil pelan: <em>kembalilah, duduklah, dengarkan.</em> Pada jeda itu, kata menjadi
+      lebih jujur; doa, lebih rendah hati.</p>
+
+    <blockquote>
+      “Ketenangan bukan absen dari suara, melainkan hadirnya makna.”
+      <cite>— Catatan Perjalanan</cite>
+    </blockquote>
+
+    <div class="ayat">إِنَّ مَعَ الْعُسْرِ يُسْرًا</div>
+    <div class="terjemah">Sesungguhnya bersama kesulitan itu ada kemudahan. (QS. Asy-Syarh [94]: 6)</div>
+
+    <h2>Menepi Bukan Menyerah</h2>
+    <p>Menepi adalah cara merawat tujuan. Ia memberi jarak agar kita melihat ulang arah, menimbang ulang bekal,
+      dan menyapa yang sering dilupakan: diri sendiri. Dalam sunyi, kita tidak sendirian — ada ikhtiar yang
+      setia menunggu, ada harap yang tak ingin ditinggal.</p>
+
+    <figure>
+      <img src="/og-cover.jpg" alt="Ilustrasi Langkah Sunyi">
+      <figcaption>Hening yang menuntun — tak bising, tapi jelas.</figcaption>
+    </figure>
+
+    <h3>Pelan yang Sampai</h3>
+    <p>Pelan bukan lambat. Pelan adalah sadar: setiap satu langkah adalah satu kalimat yang diucapkan penuh.
+      Seperti menulis, kita memilih kata dengan hati-hati agar tidak melukai, agar tidak berlebih,
+      agar yang tersisa hanyalah yang perlu.</p>
+
+    <div class="note">
+      Catatan halus: Jika hati terasa sesak, kecilkan dunia — cukup satu nafas, satu doa, satu langkah.
+    </div>
+
+    <hr class="sep">
+
+    <p><sup id="fnref1">[1]</sup> “Sunyi” dalam tulisan ini bukan sepi yang menakutkan; ia adalah ruang belajar
+      untuk mengembalikan arti pada kata-kata yang kita ucapkan setiap hari.</p>
+  </article>
+
+  <!-- Share & Navigasi -->
+  <div class="share">
+    <a id="share-wa" class="btn" href="#" target="_blank" rel="noopener">🟢 Bagikan WhatsApp</a>
+    <a id="share-tw" class="btn" href="#" target="_blank" rel="noopener">𝕏 Bagikan Twitter/X</a>
+    <a id="copy-link" class="btn" href="#">🔗 Salin Tautan</a>
+  </div>
+
+  <div class="post-nav">
+    <a id="prevPost" href="/peta-kecil-ke-rumah">← Tulisan Sebelumnya</a>
+    <a id="nextPost" href="/menjemput-hening">Tulisan Berikutnya →</a>
+  </div>
+
+  <div class="footer">
+    <small>© <span id="y"></span> Ali Muhsi Kemal — Renung Aksara</small>
+  </div>
+</main>
+
+<script>
+/* Tahun footer */
+document.getElementById('y').textContent = new Date().getFullYear();
+
+/* Tanggal + waktu baca */
+(function(){
+  const meta = document.getElementById('metaDate');
+  const raw  = meta.textContent.trim();
+  const d = new Date(raw);
+  if(!isNaN(d)) {
+    const opts = { year:'numeric', month:'long', day:'numeric' };
+    meta.textContent = d.toLocaleDateString('id-ID', opts);
+  }
+  const text = document.getElementById('article').innerText || '';
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.round(words / 220));
+  document.getElementById('readtime').textContent = minutes + " menit baca";
+})();
+
+/* Tombol share */
+(function(){
+  const t = document.title;
+  const u = location.href;
+  document.getElementById('share-wa').href = "https://wa.me/?text=" + encodeURIComponent(t + " — " + u);
+  document.getElementById('share-tw').href = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t) + "&url=" + encodeURIComponent(u);
+  document.getElementById('copy-link').addEventListener('click', function(e){
+    e.preventDefault();
+    navigator.clipboard.writeText(u).then(()=>{ this.textContent = "✅ Tautan Disalin"; setTimeout(()=>this.textContent="🔗 Salin Tautan",1800); });
+  });
+})();
+</script>
+</body>
+</html>
