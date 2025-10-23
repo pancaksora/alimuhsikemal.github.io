@@ -2,401 +2,334 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Renung Aksara — Ali Muhsi Kemal</title>
-<meta name="theme-color" content="#111a18">
-
-<!-- Favicon & Icons -->
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-<!-- SEO / Social -->
-<meta name="description" content="Ruang berpikir, berkarya, dan berdoa — di mana budaya, sastra, religi, dan teknologi saling menyapa.">
-<meta property="og:title" content="Renung Aksara — Ali Muhsi Kemal">
-<meta property="og:description" content="Tema lembut, teks nyaman, menyatu dengan ruh budaya, sastra, religi, dan teknologi.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://alimuhsikemal.com/">
-<meta property="og:image" content="/og-cover.jpg">
-<meta name="twitter:card" content="summary_large_image">
-
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ali Muhsi Kemal — Renung Aksara</title>
+<meta name="description" content="Pelayan Tamu Allah & Penulis. Renung Aksara.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <style>
-/* ====== Soft Dark Theme ====== */
 :root{
-  --bg:#111a18; --paper:#19231f; --card:#1f2a25; --stroke:#2a3832;
-  --ink:#eef1ef; --ink-soft:#c9d3cf; --muted:#98a8a3;
-  --accent:#ff3b3b; --accent-2:#d3a072; /* aksen sedikit dilembutkan */
-  --radius:18px; --shadow:0 16px 48px rgba(0,0,0,.35);
-  --headH:64px; /* di-set via JS agar ticker nempel tepat di bawah header */
+  --bg:#0b0c10; --card:#0f1117; --stroke:rgba(255,255,255,.08);
+  --text:#e9ecf2; --muted:#a3adb8; --accent:#ff3b3b;
+  --radius:14px;
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0; color:var(--ink);
-  font:500 15.8px/1.68 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
-  background:
-    radial-gradient(1200px 700px at 100% -10%, rgba(216,163,109,.12), transparent 60%),
-    radial-gradient(1100px 650px at 0% 100%, rgba(83,179,165,.10), transparent 62%),
-    var(--bg);
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-}
-h1,h2{font-family:ui-serif,Georgia,serif}
-a{color:inherit;text-decoration:none}
-.container{max-width:1160px;margin:auto;padding:18px}
-.section{padding:18px 0}
-hr{border:0;border-top:1px solid var(--stroke);margin:14px 0}
-
-/* Header */
-.header{
-  position:sticky; top:0; z-index:50;
-  border-bottom:1px solid var(--stroke);
-  background:linear-gradient(180deg, rgba(25,35,31,.92), rgba(25,35,31,.66));
-  backdrop-filter:blur(8px);
-}
-.head-in{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.brand{display:flex;align-items:center;gap:6px}
-.logo{width:38px;height:38px;border-radius:10px;display:block}
-.sigil{display:none} /* diganti img logo */
-.tag{color:var(--muted);font-size:.95rem}
-.tabs{display:flex;gap:8px;flex-wrap:wrap}
-.tab{padding:6px 10px;border-radius:12px;border:1px solid var(--stroke);background:#1a241f;transition:.15s}
-.tab.primary{border-color:#35574f;background:#21312b}
-
-/* Slogan (hero) */
-.slogan{padding:14px 16px 10px;background:linear-gradient(180deg,#15211d,#17241f);border-bottom:1px solid var(--stroke)}
-.slogan-inner{max-width:1280px;margin:auto;text-align:center}
-.title{margin:8px 0 4px;font-weight:900;letter-spacing:.2px;font-size:clamp(24px,4vw,42px)}
-.subtitle{
-  color:#a8b5ad; max-width:860px; margin:2px auto 0;
-  font:400 .92rem/1.6 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing:.3px;
-}
-
-/* Ticker — sticky under header, super soft */
-.ticker-wrap{
-  position:sticky;
-  top:var(--headH);
-  z-index:49;
-  overflow:hidden; width:100%;
-  border-bottom:1px solid var(--stroke); background:#141f1b;
-  mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
-}
-.ticker{
-  display:inline-block;white-space:nowrap;padding:6px 0;
-  animation:ticker 120s linear infinite; /* lembut */
-  opacity:.6;filter:saturate(.85) contrast(.95);
-}
-.ticker span{margin:0 42px;color:#b4c0bc}
-@keyframes ticker{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
-@media (prefers-reduced-motion:reduce){.ticker{animation-duration:999s}}
-.ticker-wrap:hover .ticker{animation-play-state:paused}
-
-/* Grid & Cards */
-.grid{display:grid;gap:6px}
-.grid-2{grid-template-columns:1.1fr .9fr}
-.grid-3{grid-template-columns:repeat(3,1fr)}
-.card,.hero-card{border:1px solid var(--stroke);background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:10px}
-.item{display:flex;justify-content:space-between;gap:10px;padding:8px 10px;border:1px dashed var(--stroke);border-radius:14px;background:#1a241f}
-.item small{color:var(--muted)}
-.timeline{display:grid;gap:6px}
-.tl{position:relative;padding:10px 12px 10px 26px;border:1px solid var(--stroke);border-radius:14px;background:#1a241f}
-.tl:before{content:"";position:absolute;left:12px;top:18px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
-
-/* Waktu & salat */
-.prayer .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-.bigclock{font-weight:1000;letter-spacing:.6px;font-size:clamp(32px,7vw,68px);color:var(--accent);line-height:1.05;text-shadow:0 10px 30px rgba(86,182,169,.18)}
-.count{font-weight:900;font-size:clamp(20px,3.8vw,30px);color:#cfe9e4;letter-spacing:.4px}
-.badge{display:inline-flex;gap:8px;align-items:center;padding:6px 8px;border:1px dashed var(--stroke);border-radius:10px;background:#1a241f;color:var(--muted)}
-.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.time-card{padding:10px;border:1px solid var(--stroke);border-radius:12px;background:#16201b}
-.time-card .name{color:var(--muted);font-size:.92rem}
-.time-card .val{font-weight:800;font-size:18px}
-.smallnote{color:#94a49f;font-size:.9rem;margin-top:8px}
-
-/* Footer */
-footer{padding:28px 0 46px;border-top:1px solid var(--stroke);color:var(--muted)}
-.foot-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:6px}
-
-/* Responsive */
-@media (max-width:980px){ .grid-2{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr 1fr} .foot-grid{grid-template-columns:1fr} .container{padding:16px} }
-@media (max-width:560px){ .container{padding:14px} .grid-3{grid-template-columns:1fr} .title{font-size:clamp(22px,6vw,34px)} }
-
-/* Fallback: bila sticky tak didukung → fixed + offset */
-html.sticky-fallback .ticker-wrap{ position:fixed; top:var(--headH); left:0; right:0; z-index:49; }
-html.sticky-fallback main{ padding-top: calc(var(--tickerH, 40px)); }
+*{box-sizing:border-box} html,body{height:100%}
+body{margin:0;background:#0b0c10;color:var(--text);
+  font:500 15.2px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial}
+a{color:var(--accent);text-decoration:none}
+.container{max-width:1160px;margin:auto;padding:12px}
+.grid{display:grid;gap:8px}
+.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:1fr 1fr 1fr}
+.card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:0 8px 22px rgba(0,0,0,.18);padding:8px}
+.badge{display:inline-flex;gap:6px;align-items:center;padding:4px 6px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);font-size:12px}
+.btn{padding:6px 10px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.05);color:var(--text);cursor:pointer}
+.btn-primary{border-color:rgba(255,59,59,.45);background:linear-gradient(180deg, rgba(255,59,59,.25), rgba(255,59,59,.10))}
+.header{position:sticky;top:8px;z-index:20;background:rgba(15,17,23,.6);backdrop-filter:blur(8px);
+  border:1px solid var(--stroke);border-radius:14px;padding:6px 8px;display:flex;align-items:center;gap:8px}
+.logo{width:34px;height:34px;border-radius:8px;background:#000;display:block}
+.brand{display:flex;align-items:center;gap:8px}
+.title{font-weight:900;margin:0}
+.sub{color:var(--muted);font-size:12px;margin-top:-2px}
+.spacer{flex:1}
+/* single menu */
+.menuBtn{padding:6px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05)}
+/* drawer */
+.drawer{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(3px);display:none}
+.drawer.open{display:block}
+.sheet{position:absolute;right:8px;top:8px;width:min(340px,90vw);background:var(--card);border:1px solid var(--stroke);
+  border-radius:14px;padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.sheet a{display:block;padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);margin-bottom:6px;color:var(--text)}
+/* modal hubungi */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);display:none}
+.modal.open{display:block}
+.modal .box{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,92vw);background:var(--card);
+  border:1px solid var(--stroke);border-radius:14px;padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.modal .grid{grid-template-columns:1fr 1fr}
+.modal a{display:block;padding:8px;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:rgba(255,255,255,.03);color:var(--text)}
+.close{float:right;border:none;background:transparent;color:var(--muted);cursor:pointer}
+/* hero */
+.section{padding:10px 0}
+.hero{display:grid;grid-template-columns:1fr .9fr;gap:8px}
+h1{margin:0 0 4px;font-size:clamp(22px,3.6vw,36px);line-height:1.2}
+.subtitle{color:#a8b5ad;margin:0;font:400 .9rem/1.45 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.cta{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+/* lists */
+.list{display:grid;gap:6px}
+.item{display:flex;justify-content:space-between;gap:6px;padding:6px 8px;border:1px solid rgba(255,255,255,.10);border-radius:10px;background:rgba(255,255,255,.03)}
+/* ticker (jadwal & catatan) */
+.ticker{max-height:160px;overflow:auto;border:1px dashed rgba(255,255,255,.22);border-radius:12px}
+.ticker ul{list-style:none;margin:0;padding:4px}
+.ticker li{padding:6px 8px;margin-bottom:4px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+/* prayer panel */
+.clock{font-weight:900;font-size:clamp(22px,4.5vw,34px);letter-spacing:.4px;text-shadow:0 0 12px rgba(255,59,59,.18)}
+.date{color:var(--muted);font-size:.92rem;margin-top:2px}
+.prayer-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.prayer{display:flex;justify-content:space-between;gap:6px;padding:6px 8px;border:1px solid rgba(255,255,255,.10);border-radius:10px;background:rgba(255,255,255,.03)}
+.prayer.next{border-color:rgba(255,59,59,.45);background:linear-gradient(180deg, rgba(255,59,59,.15), rgba(255,59,59,.06))}
+/* responsive */
+@media (max-width:980px){ .hero{grid-template-columns:1fr} .grid-2,.grid-3{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ .container{padding:10px} .grid-2,.grid-3{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
+<div class="container">
 
-<!-- NAV -->
-<header class="header">
-  <div class="container head-in">
+  <!-- HEADER -->
+  <div class="header">
     <div class="brand">
-      <!-- Pakai logo.svg yang kamu kirim (taruh di lokasi yang sama dengan file ini) -->
-      <img src="logo.svg" alt="Logo Ali Muhsi Kemal" class="logo">
+      <img class="logo" src="assets/logo.svg" alt="Logo">
       <div>
-        <strong style="font-family:ui-serif,Georgia,serif;font-weight:900">Ali Muhsi Kemal</strong><br>
-        <span class="tag">Pelayan Tamu Allah · Penulis — Renung Aksara</span>
+        <div class="title">Ali Muhsi Kemal</div>
+        <div class="sub">Pelayan Tamu Allah · Penulis — Renung Aksara</div>
       </div>
     </div>
-    <nav class="tabs" aria-label="navigasi">
-      <a class="tab primary" href="#karya">Karya</a>
-      <a class="tab" href="#tulisan">Tulisan</a>
-      <a class="tab" href="#jadwal">Jadwal</a>
-      <a class="tab" href="#waktu">Waktu & Salat</a>
-      <a class="tab" href="https://wa.me/6281992099999" target="_blank">Hubungi</a>
-    </nav>
+    <div class="spacer"></div>
+    <button class="menuBtn btn" id="openMenu">Menu</button>
+    <button class="btn btn-primary" id="openContact">Hubungi</button>
   </div>
-</header>
 
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div id="ticker" class="ticker"></div>
-</div>
-
-<main>
-  <!-- INFO -->
-  <section class="section">
-    <div class="container grid grid-2">
-      <div class="hero-card">
-        <b style="font-family:ui-serif,Georgia,serif;font-size:20px">Ringkas</b>
-        <p class="tag" style="margin-top:6px">Halaman depan Renung Aksara — ringan, fokus keterbacaan, dan siap diisi karya & tulisan hidupmu.</p>
+  <!-- HERO -->
+  <section class="section hero">
+    <div class="card">
+      <h1>Dari Sunyi — Untuk Semesta</h1>
+      <p class="subtitle">menyambut tamu Allah dengan pelayanan yang rapi · menulis kisah yang pelan namun sampai</p>
+      <div class="pills">
+        <span class="badge">Pelayanan Jamaah</span>
+        <span class="badge">Narasi Sejarah</span>
+        <span class="badge">Produksi Video</span>
       </div>
-      <div class="hero-card">
-        <b style="font-family:ui-serif,Georgia,serif;font-size:20px">Arah Desain</b>
-        <p class="tag" style="margin-top:6px">Soft dark · editorial · aksen toska & teh. Teks nyaman, nuansa budaya, sastra, religi, dan teknologi menyatu.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#karya">Lihat Karya</a>
+        <a class="btn" href="#tulisan">Baca Tulisan</a>
       </div>
+    </div>
+    <div class="card">
+      <h3>Jadwal & Catatan</h3>
+      <div class="clock" id="clock">00:00:00</div>
+      <div class="date" id="dateLine">—</div>
+      <div class="prayer-grid" id="prayerGrid"></div>
+      <div class="ticker"><ul id="ticker"></ul></div>
     </div>
   </section>
-  
-  <!-- SLOGAN -->
-  <div class="slogan">
-    <div class="slogan-inner">
-      <h1 class="title">Dari Sunyi — Untuk Semesta</h1>
-      <p class="subtitle">ruang berpikir, berkarya, dan berdoa — di mana budaya, sastra, religi, dan teknologi saling menyapa.</p>
-    </div>
-  </div>
 
   <!-- KARYA -->
   <section id="karya" class="section">
-    <div class="container">
-      <h2 style="margin:0 0 10px;font-weight:900">Karya Pilihan</h2>
-      <div class="grid grid-3">
-        <article class="card"><b>Bayangan di Mina</b><div class="tag" style="margin-top:6px">Narasi video · budaya · religi</div></article>
-        <article class="card"><b>Langit Muzdalifah</b><div class="tag" style="margin-top:6px">Puisi malam · visual bokeh</div></article>
-        <article class="card"><b>Rihlah</b><div class="tag" style="margin-top:6px">Serial pendek · perjalanan hati</div></article>
-      </div>
+    <div class="card">
+      <h3>Karya Pilihan</h3>
+      <div class="list" id="karyaList"></div>
     </div>
   </section>
 
-  <!-- VIDEO -->
-  <section class="section">
-    <div class="container">
-      <h2 style="margin:0 0 10px;font-weight:900">Video Terbaru</h2>
-      <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:16px">
-        <div class="card"><div style="position:relative;padding-top:56.25%">
-          <iframe src="https://www.youtube.com/embed/U-b3uERZwmc" title="YouTube video 1" allowfullscreen
-            style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe>
-        </div></div>
-        <div class="card"><div style="position:relative;padding-top:56.25%">
-          <iframe src="https://www.youtube.com/embed/6mvvx15hRBg" title="YouTube video 2" allowfullscreen
-            style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe>
-        </div></div>
-        <div class="card"><div style="position:relative;padding-top:56.25%">
-          <iframe src="https://www.youtube.com/embed/8BstvY_VNIY" title="YouTube video 3" allowfullscreen
-            style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe>
-        </div></div>
-      </div>
-    </div>
-  </section>
-     
   <!-- TULISAN -->
   <section id="tulisan" class="section">
-    <div class="container">
-      <h2 style="margin:0 0 10px;font-weight:900">Tulisan Terbaru</h2>
-      <div id="listTulisan"></div>
+    <div class="card">
+      <h3>Tulisan Terbaru</h3>
+      <div class="list" id="tulisanList"></div>
     </div>
   </section>
 
-  <!-- JADWAL -->
-  <section id="jadwal" class="section">
-    <div class="container">
-      <h2 style="margin:0 0 10px;font-weight:900">Jadwal & Catatan</h2>
-      <div class="timeline">
-        <div class="tl"><b>Pekan ini</b><br><span class="tag">Penjadwalan layanan keluarga — by request.</span></div>
-        <div class="tl"><b>Ahad malam</b><br><span class="tag">Rilis tulisan Renung Aksara.</span></div>
-        <div class="tl"><b>Catatan</b><br><span class="tag">Semua tautan: alimuhsikemal.link</span></div>
+  <!-- KONTAK NOTE -->
+  <section id="kontak" class="section">
+    <div class="card">
+      <h3>Kontak Singkat</h3>
+      <div class="list">
+        <div class="item"><span>Untuk naskah: tujuan, panjang, deadline, dan gaya.</span></div>
+        <div class="item"><span>Untuk layanan jamaah: jumlah orang, rentang tanggal, preferensi rute.</span></div>
       </div>
     </div>
   </section>
 
-  <!-- WAKTU & SALAT -->
-  <section id="waktu" class="section" style="padding-top:6px">
-    <div class="container">
-      <div class="hero-card prayer">
-        <div class="row">
-          <div>
-            <div class="bigclock" id="bigClock">--:--:--</div>
-            <div class="badge" id="tz">Zona waktu —</div>
-          </div>
-          <div class="badge"><span class="tag">Menuju</span> <b id="nextName">—</b> · <span class="count" id="countdown">--:--:--</span></div>
-        </div>
-        <div style="margin-top:10px" class="smallnote" id="locLabel">Lokasi: memperkirakan via IP…</div>
-        <div class="time-grid" id="times"></div>
-      </div>
-    </div>
-  </section>
-</main>
+  <footer class="section" style="color:#a3adb8;border-top:1px solid var(--stroke);padding-top:12px">
+    © <span id="year"></span> Ali Muhsi Kemal — Renung Aksara · “menulis pelan, sampai jauh.”
+  </footer>
+</div>
 
-<footer>
-  <div class="container foot-grid">
-    <div>© <span id="y"></span> Ali Muhsi Kemal — Renung Aksara</div>
-    <div style="text-align:right" class="tag">(MIT) Pancaksora — karya & renung · by Ali Muhsi Kemal</div>
+<!-- DRAWER MENU -->
+<div class="drawer" id="drawer">
+  <div class="sheet">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <b>Menu</b>
+      <button class="close" id="closeMenu">✕</button>
+    </div>
+    <a href="#karya">Karya</a>
+    <a href="#tulisan">Tulisan</a>
+    <a href="#kontak">Kontak</a>
+    <a href="#" id="openContact2">Hubungi</a>
   </div>
-</footer>
+</div>
+
+<!-- MODAL HUBUNGI -->
+<div class="modal" id="contact">
+  <div class="box">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <b>Hubungi & Sosial</b>
+      <button class="close" id="closeContact">✕</button>
+    </div>
+    <div class="grid">
+      <a id="wa" target="_blank" rel="noopener">WhatsApp</a>
+      <a id="yt" target="_blank" rel="noopener">YouTube</a>
+      <a id="ig" target="_blank" rel="noopener">Instagram</a>
+      <a id="tt" target="_blank" rel="noopener">TikTok</a>
+      <a id="x" target="_blank" rel="noopener">X (Twitter)</a>
+      <a id="threads" target="_blank" rel="noopener">Threads</a>
+      <a id="fb" target="_blank" rel="noopener">Facebook</a>
+      <a id="site" target="_blank" rel="noopener">Situs</a>
+    </div>
+  </div>
+</div>
 
 <script>
-/* ===== Sticky support + fallback fixed + pengukuran dinamis ===== */
-function supportsSticky(){
-  return CSS.supports('position','sticky') || CSS.supports('position','-webkit-sticky');
-}
-const root    = document.documentElement;
-const header  = document.querySelector('.header');
-const tickerW = document.querySelector('.ticker-wrap');
-function updateVars(){
-  const headH   = header?.offsetHeight  || 64;
-  const tickerH = tickerW?.offsetHeight || 40;
-  root.style.setProperty('--headH',  headH + 'px');
-  root.style.setProperty('--tickerH',tickerH + 'px');
-}
-try{
-  const ro = new ResizeObserver(updateVars);
-  header && ro.observe(header);
-  tickerW && ro.observe(tickerW);
-}catch(e){ addEventListener('resize', updateVars); }
-addEventListener('resize', updateVars);
-addEventListener('orientationchange', updateVars);
-if (window.visualViewport) visualViewport.addEventListener('resize', updateVars);
-if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateVars);
-requestAnimationFrame(updateVars); setTimeout(updateVars,0); setTimeout(updateVars,250); setTimeout(updateVars,1000);
-if (!supportsSticky()){ root.classList.add('sticky-fallback'); updateVars(); }
+// ===== Drawer
+const drawer=document.getElementById('drawer');
+document.getElementById('openMenu').onclick=()=>drawer.classList.add('open');
+document.getElementById('closeMenu').onclick=()=>drawer.classList.remove('open');
+drawer.addEventListener('click',(e)=>{ if(e.target===drawer) drawer.classList.remove('open'); });
 
-/* Tahun */
-document.getElementById('y').textContent = new Date().getFullYear();
+// ===== Contact Modal
+const modal=document.getElementById('contact');
+const openC = ()=>modal.classList.add('open');
+document.getElementById('openContact').onclick=openC;
+document.getElementById('openContact2').onclick=(e)=>{ e.preventDefault(); drawer.classList.remove('open'); openC(); };
+document.getElementById('closeContact').onclick=()=>modal.classList.remove('open');
+modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.classList.remove('open'); });
 
-/* Ticker (soft & slow) */
-const HIKMAH = [
-  "Jalan yang pelan, seringkali lebih sampai.",
-  "Kita menulis agar hati punya tempat pulang.",
-  "Doa itu sunyi—namun menggerakkan semesta.",
-  "Sabar adalah langkah yang tidak berbunyi.",
-  "Apa pun yang pergi, jangan biarkan makna ikut pulang."
-];
-const tickerEl = document.getElementById('ticker');
-tickerEl.innerHTML = (" " + HIKMAH.join("  •  ") + "  •  ").repeat(3)
-  .split("•").map(s=>`<span>${s.trim()}</span>`).join("•");
+// ===== Clock + Gregorian + Hijri (approx Kuwaiti algorithm)
+const clockEl=document.getElementById('clock');
+const dateEl=document.getElementById('dateLine');
+const hari=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+const bulan=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+const hMonth=['Muharram','Safar','Rabi’ul Awwal','Rabi’ul Akhir','Jumadil Ula','Jumadil Akhir','Rajab','Sya’ban','Ramadhan','Syawwal','Dzulqa’dah','Dzulhijjah'];
 
-/* Jam besar */
-const bigClock = document.getElementById('bigClock');
-const tzEl = document.getElementById('tz');
-tzEl.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-function tick(){
-  const d=new Date();
-  bigClock.textContent=[d.getHours(),d.getMinutes(),d.getSeconds()]
-    .map(v=>String(v).padStart(2,'0')).join(':');
+function gregorianToJD(y,m,d){
+  if(m<=2){ y-=1; m+=12; }
+  const A = Math.floor(y/100);
+  const B = 2 - A + Math.floor(A/4);
+  return Math.floor(365.25*(y+4716)) + Math.floor(30.6001*(m+1)) + d + B - 1524.5;
 }
-setInterval(tick,1000); tick();
-
-/* Waktu salat (lokasi via IP, tanpa izin) */
-const PRAYERS=["Fajr","Dhuhr","Asr","Maghrib","Isha"];
-const timesWrap=document.getElementById('times');
-const nextName=document.getElementById('nextName');
-const countdown=document.getElementById('countdown');
-const locLabel=document.getElementById('locLabel');
-let currentTimings=null;
-function toToday(hm){ const [H,M]=hm.split(':').map(Number); const d=new Date(); d.setHours(H,M,0,0); return d; }
-function renderTimes(t){
-  const map={Imsak:"Imsak",Fajr:"Subuh",Sunrise:"Terbit",Dhuhr:"Zuhur",Asr:"Asar",Maghrib:"Maghrib",Isha:"Isya"};
-  const order=["Imsak","Fajr","Sunrise","Dhuhr","Asr","Maghrib","Isha"];
-  timesWrap.innerHTML=order.map(k=>t[k]?`<div class="time-card"><div class="name">${map[k]||k}</div><div class="val">${t[k].replace(/^0/,'')}</div></div>`:'').join('');
+function islamicToJD(y,m,d){
+  const ISLAMIC_EPOCH = 1948439.5;
+  return d + Math.ceil(29.5*(m-1)) + (y-1)*354 + Math.floor((3+11*y)/30) + ISLAMIC_EPOCH - 1;
 }
-function updateCountdown(){
-  if(!currentTimings) return;
-  const now=new Date();
-  const seq=PRAYERS.map(n=>({name:n, date:toToday(currentTimings[n])}));
-  let next=seq.find(x=>x.date>now);
-  if(!next){
-    next={name:"Fajr",date:new Date(now)};
-    const [H,M]=currentTimings["Fajr"].split(':').map(Number);
-    next.date.setDate(now.getDate()+1); next.date.setHours(H,M,0,0);
-  }
-  const mapName={Fajr:"Subuh",Dhuhr:"Zuhur",Asr:"Asar",Maghrib:"Maghrib",Isha:"Isya"};
-  nextName.textContent = mapName[next.name]||next.name;
-  const diff=next.date-now;
-  const h=String(Math.floor(diff/3600000)).padStart(2,'0'),
-        m=String(Math.floor(diff%3600000/60000)).padStart(2,'0'),
-        s=String(Math.floor(diff%60000/1000)).padStart(2,'0');
-  countdown.textContent=`${h}:${m}:${s}`;
+function jdToIslamic(jd){
+  const ISLAMIC_EPOCH = 1948439.5;
+  jd = Math.floor(jd) + 0.5;
+  const days = jd - ISLAMIC_EPOCH;
+  let year = Math.floor((30*days + 10646)/10631);
+  let month = Math.min(12, Math.ceil((days - (29 + (islamicToJD(year,1,1) - ISLAMIC_EPOCH)))/29.5) + 1);
+  let day = Math.floor(jd - islamicToJD(year, month, 1)) + 1;
+  return {y:year, m:month, d:day};
 }
-setInterval(updateCountdown,1000);
+function updateClock(){
+  const now = new Date();
+  const hh = String(now.getHours()).padStart(2,'0');
+  const mm = String(now.getMinutes()).padStart(2,'0');
+  const ss = String(now.getSeconds()).padStart(2,'0');
+  clockEl.textContent = `${hh}:${mm}:${ss}`;
+  const g = `${hari[now.getDay()]}, ${now.getDate()} ${bulan[now.getMonth()]} ${now.getFullYear()}`;
+  const jd = gregorianToJD(now.getFullYear(), now.getMonth()+1, now.getDate());
+  const h = jdToIslamic(jd);
+  const hij = `${h.d} ${hMonth[h.m-1]} ${h.y} H`;
+  dateEl.textContent = `${g} / ${hij}`;
+}
+setInterval(updateClock, 1000); updateClock();
 
-async function getIPLocation(){
-  try{
-    const res = await fetch('https://ipapi.co/json/');
-    if(!res.ok) throw new Error('ipapi fail');
-    const j = await res.json();
-    if(j && j.latitude && j.longitude){
-      locLabel.textContent = `Lokasi (per IP): ${j.city||'—'}, ${j.country_name||'—'}`;
-      return {lat:j.latitude, lon:j.longitude};
+// ===== Prayer times panel
+const prayerGrid=document.getElementById('prayerGrid');
+const order=['Subuh','Dzuhur','Ashar','Maghrib','Isya'];
+function renderShalat(times){
+  prayerGrid.innerHTML='';
+  const now = new Date();
+  const nowMin = now.getHours()*60 + now.getMinutes();
+  let closestIdx=-1, closestDiff=1e9;
+  const vals = order.map(nm => {
+    const t = (times[nm]||'--:--');
+    let mins=1e9;
+    if(/^\d{1,2}:\d{2}$/.test(t)){
+      const [H,M]=t.split(':').map(Number);
+      mins = H*60+M;
     }
-    throw new Error('no lat lon');
-  }catch(e){
-    try{
-      const res2=await fetch('https://ipwho.is/');
-      const j2=await res2.json();
-      if(j2 && j2.success && j2.latitude && j2.longitude){
-        locLabel.textContent = `Lokasi: ${j2.city||'—'}, ${j2.country||'—'}`;
-        return {lat:j2.latitude, lon:j2.longitude};
-      }
-    }catch(e2){}
-    locLabel.textContent = "Lokasi: Makkah (fallback)";
-    return {lat:21.4225, lon:39.8262};
-  }
+    const diff = (mins>=nowMin)? (mins-nowMin) : (mins+1440-nowMin);
+    if(mins<1e9 && diff<closestDiff){ closestDiff=diff; closestIdx=order.indexOf(nm); }
+    return {name:nm, time:t, mins};
+  });
+  vals.forEach((v,i)=>{
+    const div=document.createElement('div');
+    div.className='prayer'+(i===closestIdx?' next':'');
+    div.innerHTML = `<b>${v.name}</b><span>${v.time}</span>`;
+    prayerGrid.appendChild(div);
+  });
 }
-async function loadTimings(lat,lon){
+async function loadShalat(){
+  // 1) external pre-defined
+  if(window.SHOLAT_TIMES){ renderShalat(window.SHOLAT_TIMES); return; }
+  // 2) shalat.json
   try{
-    const url=`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=4`;
-    const res=await fetch(url);
-    const js=await res.json();
-    const t=js?.data?.timings||{};
-    ["Fajr","Sunrise","Dhuhr","Asr","Maghrib","Isha","Imsak"].forEach(k=>{
-      if(t[k]) t[k]=t[k].split(' ')[0];
-    });
-    currentTimings=t; renderTimes(t); updateCountdown();
-  }catch(e){ console.error(e); }
+    const r = await fetch('shalat.json',{cache:'no-store'});
+    if(r.ok){
+      const js = await r.json();
+      if(js && js.times){ renderShalat(js.times); return; }
+    }
+  }catch(e){}
+  // 3) fallback (Makkah sample) — silakan sesuaikan di shalat.json atau window.SHOLAT_TIMES
+  renderShalat({Subuh:'05:14', Dzuhur:'12:07', Ashar:'15:22', Maghrib:'17:44', Isya:'19:00'});
 }
-(async()=>{ const pos = await getIPLocation(); await loadTimings(pos.lat, pos.lon); })();
+loadShalat();
 
-/* Tulisan dinamis via tulisan.json */
-(async function(){
-  const jsonURL = "/tulisan.json"; // pakai path akar domain
-  try{
-    const r = await fetch(jsonURL, {cache:"no-cache"}); const data = await r.json();
-    const wrap = document.getElementById('listTulisan');
-    wrap.innerHTML = data.map(it=>{
-      const tgl = new Date(it.tanggal);
-      const opts = {year:'numeric',month:'short',day:'2-digit'};
-      const pretty = tgl.toLocaleDateString('id-ID',opts);
-      return `
-        <a class="item" href="${it.url||'#'}">
-          <div>
-            <b>${it.judul}</b>
-            <div class="tag">${it.ringkas||''}</div>
-          </div>
-          <small class="tag">${pretty}</small>
-        </a>`;
-    }).join('');
-  }catch(e){ console.error("Gagal memuat tulisan.json", e); }
-})();
+// ===== Ticker (catatan)
+const tk=document.getElementById('ticker');
+function buildTicker(items){
+  tk.innerHTML='';
+  items.forEach(x=>{
+    const li=document.createElement('li');
+    li.innerHTML='<b>'+x.tanggal+'</b> — '+x.judul+' <span class="badge">'+x.catatan+'</span>';
+    tk.appendChild(li);
+  });
+}
+buildTicker([{tanggal:'—',judul:'Renung Aksara: narasi baru segera',catatan:'minggu ini'},
+             {tanggal:'—',judul:'Slot layanan keluarga',catatan:'by request'}]);
+
+// ===== Karya
+const karya=[
+  {judul:'Perang Riddah — Narasi Penuh',link:'https://www.youtube.com/@renungaksara'},
+  {judul:'Sa’d bin Abi Waqqash — Panah dari Langit',link:'https://www.youtube.com/@renungaksara'},
+  {judul:'Renung: Doa Pendek di Perjalanan',link:'https://www.youtube.com/@renungaksara'},
+  {judul:'Catatan Perjalanan — Makkah',link:'https://www.youtube.com/@renungaksara'}
+];
+const list=document.getElementById('karyaList');
+karya.forEach(k=>{const el=document.createElement('div');el.className='item';el.innerHTML='<b>'+k.judul+'</b> <span class="badge">baca/tonton</span>'; el.onclick=()=>window.open(k.link,'_blank','noopener'); list.appendChild(el);});
+
+// ===== Tulisan (fallback)
+const tulisan=[
+ {judul:'Langkah Sunyi',tgl:'2025-10-20',kutipan:'Kita menulis pelan agar makna sempat duduk.'},
+ {judul:'Menjaga Nyala',tgl:'2025-10-18',kutipan:'Kecil nyalanya, besar hangatnya.'},
+ {judul:'Doa Perjalanan',tgl:'2025-10-15',kutipan:'Antara langkah dan takdir ada doa yang pelan.'},
+ {judul:'Denting Malam',tgl:'2025-09-09',kutipan:'Malam adalah buku yang menunggu dibaca hati.'}
+];
+const tl=document.getElementById('tulisanList');
+tulisan.forEach(t=>{const el=document.createElement('div');el.className='item';el.innerHTML='<div><b>'+t.judul+'</b><div class="badge">'+t.tgl+'</div></div><em style="color:#a3adb8">'+t.kutipan+'</em>'; tl.appendChild(el);});
+
+// ===== Links
+const links={
+  site:'https://alimuhsikemal.com/',
+  youtube:'https://www.youtube.com/channel/UCtUiw0MUdMxoCeBNEk_HX6w',
+  tiktok:'https://tiktok.com/@alimuhsikemal',
+  x:'https://x.com/alimuhsikemal',
+  instagram:'https://instagram.com/alimuhsikemal',
+  threads:'https://www.threads.net/@alimuhsikemal',
+  facebook:'https://www.facebook.com/share/1AiwxLbySu/',
+  whatsapp:'https://wa.me/6281992099999'
+};
+document.getElementById('site').href=links.site;
+document.getElementById('yt').href=links.youtube;
+document.getElementById('tt').href=links.tiktok;
+document.getElementById('x').href=links.x;
+document.getElementById('ig').href=links.instagram;
+document.getElementById('threads').href=links.threads;
+document.getElementById('fb').href=links.facebook;
+document.getElementById('wa').href=links.whatsapp;
+
+// Footer year
+document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
