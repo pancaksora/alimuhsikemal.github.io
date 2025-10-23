@@ -63,6 +63,7 @@ h1{margin:0 0 4px;font-size:clamp(22px,3.6vw,36px);line-height:1.2}
 /* prayer panel */
 .clock{font-weight:900;font-size:clamp(22px,4.5vw,34px);letter-spacing:.4px;text-shadow:0 0 12px rgba(255,59,59,.18)}
 .date{color:var(--muted);font-size:.92rem;margin-top:2px}
+.countdown{font-size:.96rem;letter-spacing:.3px;text-shadow:0 0 10px rgba(255,59,59,.18);color:#ffd2d2;font-weight:700}
 .prayer-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
 .prayer{display:flex;justify-content:space-between;gap:6px;padding:6px 8px;border:1px solid rgba(255,255,255,.10);border-radius:10px;background:rgba(255,255,255,.03)}
 .prayer.next{border-color:rgba(255,59,59,.45);background:linear-gradient(180deg, rgba(255,59,59,.15), rgba(255,59,59,.06))}
@@ -107,6 +108,7 @@ h1{margin:0 0 4px;font-size:clamp(22px,3.6vw,36px);line-height:1.2}
       <h3>Jadwal & Catatan</h3>
       <div class="clock" id="clock">00:00:00</div>
       <div class="date" id="dateLine">—</div>
+      <div class="countdown" id="countdown"></div>
       <div class="prayer-grid" id="prayerGrid"></div>
       <div class="ticker"><ul id="ticker"></ul></div>
     </div>
@@ -193,9 +195,10 @@ document.getElementById('openContact2').onclick=(e)=>{ e.preventDefault(); drawe
 document.getElementById('closeContact').onclick=()=>modal.classList.remove('open');
 modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.classList.remove('open'); });
 
-// ===== Clock + Gregorian + Hijri (approx Kuwaiti algorithm)
+// ===== Clock + Gregorian + Hijri
 const clockEl=document.getElementById('clock');
 const dateEl=document.getElementById('dateLine');
+const countdownEl=document.getElementById('countdown');
 const hari=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
 const bulan=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
 const hMonth=['Muharram','Safar','Rabi’ul Awwal','Rabi’ul Akhir','Jumadil Ula','Jumadil Akhir','Rajab','Sya’ban','Ramadhan','Syawwal','Dzulqa’dah','Dzulhijjah'];
@@ -233,34 +236,60 @@ function updateClock(){
 }
 setInterval(updateClock, 1000); updateClock();
 
-// ===== Prayer times panel
+// ===== Prayer times + Countdown
 const prayerGrid=document.getElementById('prayerGrid');
 const order=['Subuh','Dzuhur','Ashar','Maghrib','Isya'];
-function renderShalat(times){
-  prayerGrid.innerHTML='';
+let countdownTimer=null;
+function hmToMin(hm){
+  if(!/^\d{1,2}:\d{2}$/.test(hm||'')) return null;
+  const [H,M]=hm.split(':').map(Number); return H*60+M;
+}
+function computeNext(times){
   const now = new Date();
   const nowMin = now.getHours()*60 + now.getMinutes();
-  let closestIdx=-1, closestDiff=1e9;
-  const vals = order.map(nm => {
-    const t = (times[nm]||'--:--');
-    let mins=1e9;
-    if(/^\d{1,2}:\d{2}$/.test(t)){
-      const [H,M]=t.split(':').map(Number);
-      mins = H*60+M;
-    }
-    const diff = (mins>=nowMin)? (mins-nowMin) : (mins+1440-nowMin);
-    if(mins<1e9 && diff<closestDiff){ closestDiff=diff; closestIdx=order.indexOf(nm); }
-    return {name:nm, time:t, mins};
+  let best=null, bestDiff=1e9, idx=0;
+  order.forEach((nm,i)=>{
+    const m = hmToMin(times[nm]);
+    if(m==null) return;
+    const diff = (m>=nowMin) ? (m-nowMin) : (m+1440-nowMin);
+    if(diff<bestDiff){ bestDiff=diff; best={name:nm, min:m}; idx=i; }
   });
-  vals.forEach((v,i)=>{
+  return {idx, ...best, diff:bestDiff};
+}
+function formatDHMS(s){
+  const h=Math.floor(s/3600), m=Math.floor((s%3600)/60), sec=s%60;
+  const pad=n=>String(n).padStart(2,'0');
+  return `${pad(h)}:${pad(m)}:${pad(sec)}`;
+}
+function renderShalat(times){
+  // build grid
+  prayerGrid.innerHTML='';
+  const next=computeNext(times);
+  order.forEach((nm,i)=>{
     const div=document.createElement('div');
-    div.className='prayer'+(i===closestIdx?' next':'');
-    div.innerHTML = `<b>${v.name}</b><span>${v.time}</span>`;
+    div.className='prayer'+(i===next.idx ? ' next' : '');
+    div.innerHTML=`<b>${nm}</b><span>${times[nm]||'--:--'}</span>`;
     prayerGrid.appendChild(div);
   });
+  // start countdown
+  if(countdownTimer) clearInterval(countdownTimer);
+  function tick(){
+    const now=new Date();
+    const nextMin = hmToMin(times[next.name]);
+    let target=new Date(now);
+    if(nextMin!=null){
+      target.setHours(Math.floor(nextMin/60), nextMin%60, 0, 0);
+      if(target<=now) target=new Date(target.getTime()+24*3600*1000);
+    }
+    const secs=Math.max(0, Math.floor((target-now)/1000));
+    countdownEl.textContent = `Menuju ${next.name} — ${formatDHMS(secs)}`;
+    if(secs<=0){ loadShalat(); } // refresh
+  }
+  tick();
+  countdownTimer=setInterval(tick,1000);
 }
 async function loadShalat(){
-  // 1) external pre-defined
+  // 1) window.SHOLAT_TIMES (jika sudah disiapkan eksternal)
   if(window.SHOLAT_TIMES){ renderShalat(window.SHOLAT_TIMES); return; }
   // 2) shalat.json
   try{
@@ -270,7 +299,7 @@ async function loadShalat(){
       if(js && js.times){ renderShalat(js.times); return; }
     }
   }catch(e){}
-  // 3) fallback (Makkah sample) — silakan sesuaikan di shalat.json atau window.SHOLAT_TIMES
+  // 3) fallback Makkah
   renderShalat({Subuh:'05:14', Dzuhur:'12:07', Ashar:'15:22', Maghrib:'17:44', Isya:'19:00'});
 }
 loadShalat();
